@@ -1,0 +1,11 @@
+<div class="g-md-location">
+  <select name="province" ng-model="model.province" ng-change="provinceChange()" ng-options="province.name for province in data.provinces" class="form-control">
+    <option value="">-- 请选择省份 --</option>
+  </select>
+  <select name="city" ng-model="model.city" ng-change="cityChange()" ng-options="city.name for city in data.cities" class="form-control">
+    <option value="">-- 请选择城市 --</option>
+  </select>
+  <select name="district" ng-model="model.district" ng-change="districtChange()" ng-options="district.name for district in data.districts" class="form-control">
+    <option value="">-- 请选择区 --</option>
+  </select>
+</div>

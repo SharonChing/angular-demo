@@ -1,0 +1,6 @@
+<div class="md-uploder"><a href="javascript:;" ng-file-select="upload($files)" ng-disabled="ngDisabled" ngf-accept="{{vm.type}}" ngf-max-size="{{vm.maxSize}}" class="{{vm.class}}">{{vm.label | translate}}
+    <div ng-if="vm.loadThumbnailFile" class="g-md-imgloading">
+      <div class="fa fa-spinner"> </div>
+    </div></a>
+  <div ng-if="vm.error &amp;&amp; !vm.loadThumbnailFile" class="has-error"><span ng-bind="vm.errorMessage" class="help-block"></span></div>
+</div>

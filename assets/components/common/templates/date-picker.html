@@ -1,0 +1,33 @@
+<div class="quickdate">
+  <a href="" ng-focus="toggleCalendar()" ng-click="toggleCalendar()" title="{{hoverText}}" class="quickdate-button">
+    <div ng-hide="iconClass" ng-bind-html="buttonIconHtml"></div>{{mainButtonStr}}</a>
+  <div ng-class="{open: calendarShown}" class="quickdate-popup"><a href="" tabindex="-1" ng-click="toggleCalendar()" class="quickdate-close">
+      <div ng-bind-html="closeButtonHtml"></div></a>
+    <div class="quickdate-text-inputs">
+      <div class="quickdate-input-wrapper">
+        <label>{{'quickdate.Date' | translate}}</label>
+        <input name="inputDate" type="text" ng-model="inputDate" placeholder="{{ datePlaceholder }}" ng-enter="selectDateFromInput(true)" on-tab="onDateInputTab()" class="quickdate-date-input form-control"/>
+      </div>
+      <div ng-hide="disableTimepicker" class="quickdate-input-wrapper">
+        <label>{{'quickdate.Time' | translate}}</label>
+        <input name="inputTime" type="text" ng-model="inputTime" placeholder="{{ timePlaceholder }}" ng-enter="selectDateFromInput(true)" on-tab="onTimeInputTab()" class="quickdate-time-input form-control"/>
+      </div>
+    </div>
+    <div class="quickdate-calendar-header"><a href="javascript:;" ng-click="$event.preventDefault()" tabindex="-1" ng-mousedown="prevMonth()" class="quickdate-prev-month quickdate-action-link">
+        <div ng-bind-html="prevLinkHtml"></div></a><span class="quickdate-month">{{calendarDate | date:'yyyy-MM-dd'}}</span><a href="" ng-click="nextMonth()" tabindex="-1" class="quickdate-next-month quickdate-action-link">
+        <div ng-bind-html="nextLinkHtml"></div></a></div>
+    <table class="quickdate-calendar">
+      <thead>
+        <tr>
+          <th ng-repeat="day in dayAbbreviations">{{day | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="week in weeks">
+          <td ng-class="{&quot;other-month&quot;: day.other, &quot;disabled-date&quot;: day.disabled, &quot;selected&quot;: day.selected, &quot;is-today&quot;: day.today}" ng-repeat="day in week"><a ng-if="day.isClickable" ng-mousedown="selectDate(day.date, false, true)" ng-click="$event.preventDefault()">{{day.date | date:'d'}}</a><a ng-if="!day.isClickable" ng-click="$event.preventDefault()" class="frozen">{{day.date | date:'d'}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="quickdate-popup-footer"><a href="" tabindex="-1" ng-hide="disableClearButton" ng-click="selectDateFromInput(true)" class="quickdate-clear">{{'quickdate.ok' | translate}}</a><a href="" tabindex="-1" ng-hide="disableClearButton" ng-click="clear()" class="quickdate-clear">{{'quickdate.clear' | translate}}</a></div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<form name="modalForm" ng-submit="submit()">
+  <div class="modal-body">
+    <p ng-if="options.tip" bind-html-unsafe="options.tip" class="tips"></p><%template%>
+  </div>
+  <div class="modal-footer">
+    <button ng-class="options.okCls" type="button" ng-disabled="isOkDisabled(disabledEmpty,vm[disabledEmpty])" ng-click="ok()" ng-hide="options.hideOkBtn"><i class="g-icon-ok icon-white"></i><span>{{options.okButtonLabel}}</span></button>
+    <button ng-class="options.cancelCls" ng-hide="options.hideCancelBtn" ng-click="cancel()"><i class="g-icon-cancel"></i><span>{{options.cancelButtonLabel}}</span></button>
+  </div>
+</form>
